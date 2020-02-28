@@ -86,6 +86,9 @@ src/cuda/Orb_gpu.cu
 src/cuda/Cuda.cu
 )
 
+add_subdirectory(${PROJECT_SOURCE_DIR}/Thirdparty/DBoW2)
+add_subdirectory(${PROJECT_SOURCE_DIR}/Thirdparty/g2o)
+
 target_link_libraries(${PROJECT_NAME}
 ${OpenCV_LIBS}
 ${EIGEN3_LIBS}
@@ -114,6 +117,8 @@ add_executable(mono_kitti Examples/Monocular/mono_kitti.cc)
 target_link_libraries(mono_kitti ${PROJECT_NAME})
 
 endif() # Build Examples
+
+
 
 unset(CMAKE_RUNTIME_OUTPUT_DIRECTORY)
 add_subdirectory(gpu)
