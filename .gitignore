@@ -41,6 +41,8 @@ CameraTrajectory.txt
 *.exe
 *.out
 *.app
-/.vs
 /Thirdparty/DBoW2/CMakeFiles
 /Thirdparty/DBoW2/CMakeCache.txt
+/.vs/ORB_SLAM2_CUDA/v16
+/.vs/slnx.sqlite
+/.vs/CMake Overview

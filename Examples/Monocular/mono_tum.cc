@@ -134,15 +134,20 @@ int main(int argc, char **argv)
 void LoadImages(const string &strFile, vector<string> &vstrImageFilenames, vector<double> &vTimestamps)
 {
     ifstream f;
-    f.open(strFile.c_str());
-
+    f.open(strFile.c_str(), std::ifstream::in);
+    if (!f.good())
+    {
+        cerr << "cannot open file " << strFile << endl;
+    }
     // skip first three lines
     string s0;
     getline(f,s0);
     getline(f,s0);
     getline(f,s0);
 
-    while(!f.eof())
+    int i = 0;
+
+    while(f.good())
     {
         string s;
         getline(f,s);
@@ -156,6 +161,8 @@ void LoadImages(const string &strFile, vector<string> &vstrImageFilenames, vecto
             vTimestamps.push_back(t);
             ss >> sRGB;
             vstrImageFilenames.push_back(sRGB);
+
+            std::cout << i++ << "\n";
         }
     }
 }

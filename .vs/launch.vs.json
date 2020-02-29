@@ -1,0 +1,76 @@
+{
+  "version": "0.2.1",
+  "defaults": {},
+  "configurations": [
+    {
+      "type": "cppdbg",
+      "name": "mono_tum",
+      "project": "CMakeLists.txt",
+      "projectTarget": "mono_tum",
+      "cwd": "${debugInfo.defaultWorkingDirectory}",
+      "program": "${debugInfo.fullTargetPath}",
+      "args": [
+        "../../../src/Vocabulary/ORBvoc.txt",
+        "../../../src/Examples/Monocular/TUM1.yaml",
+        "~/Downloads/rgbd_dataset_freiburg1_xyz",
+        "false"
+      ],
+      "MIMode": "gdb",
+      "externalConsole": true,
+      "remoteMachineName": "${debugInfo.remoteMachineName}",
+      "pipeTransport": {
+        "pipeProgram": "${debugInfo.shellexecPath}",
+        "pipeArgs": [
+          "/s",
+          "${debugInfo.remoteMachineId}",
+          "/p",
+          "${debugInfo.parentProcessId}",
+          "/c",
+          "${debuggerCommand}",
+          "--tty=${debugInfo.tty}"
+        ],
+        "debuggerPath": "/usr/bin/gdb"
+      },
+      "setupCommands": [
+        {
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "visualizerFile": "${debugInfo.linuxNatvisPath}",
+      "showDisplayString": true
+    },
+    {
+      "type": "cppdbg",
+      "name": "mono_tum(1)",
+      "project": "CMakeLists.txt",
+      "projectTarget": "mono_tum",
+      "cwd": "${debugInfo.defaultWorkingDirectory}",
+      "program": "${debugInfo.fullTargetPath}",
+      "MIMode": "gdb",
+      "externalConsole": true,
+      "remoteMachineName": "${debugInfo.remoteMachineName}",
+      "pipeTransport": {
+        "pipeProgram": "${debugInfo.shellexecPath}",
+        "pipeArgs": [
+          "/s",
+          "${debugInfo.remoteMachineId}",
+          "/p",
+          "${debugInfo.parentProcessId}",
+          "/c",
+          "${debuggerCommand}",
+          "--tty=${debugInfo.tty}"
+        ],
+        "debuggerPath": "/usr/bin/gdb"
+      },
+      "setupCommands": [
+        {
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "visualizerFile": "${debugInfo.linuxNatvisPath}",
+      "showDisplayString": true
+    }
+  ]
+}
